@@ -16,8 +16,7 @@ public class VehicleRouterConfig {
 
     @Bean
     public RouterFunction<ServerResponse> route(HighwayHandler highwayHandler){
-        return RouterFunctions.route().
-                GET("/vehicles", highwayHandler::getAllVehiclesData)
-                .build();
+        return RouterFunctions.route(
+                GET("/vehicles").and(accept(MediaType.APPLICATION_STREAM_JSON)), highwayHandler::vehiclesDetected);
     }
 }

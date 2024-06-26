@@ -18,13 +18,16 @@ public class HighwayHandler {
         this.vehicleRepository = vehicleRepository;
     }
 
-    public Mono<ServerResponse> getAllVehiclesData(ServerRequest request){
+    public Mono<ServerResponse> vehiclesDetected(ServerRequest request){
         Flux<Vehicle> vehicles = vehicleRepository.findAll();
-        System.out.println(vehicles);
         return ServerResponse.ok()
                 .contentType(MediaType.APPLICATION_STREAM_JSON)
                 .body(
                         vehicleRepository.findAll(), Vehicle.class
                 );
     }
+
+//    protected Flux<Vehicle> vehicleDetected(){
+//
+//    }
 }
