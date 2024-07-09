@@ -1,13 +1,12 @@
 package com.tms;
 
-import com.tms.constants.Fuel;
+import com.tms.constant.Fuel;
 import com.tms.entity.Vehicle;
 import com.tms.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;

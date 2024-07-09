@@ -1,5 +1,6 @@
 package com.tms.config;
 
+import com.tms.HighwayTrafficSimulator;
 import com.tms.handler.HighwayHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +18,12 @@ public class VehicleRouterConfig {
     @Bean
     public RouterFunction<ServerResponse> route(HighwayHandler highwayHandler){
         return RouterFunctions.route(
-                GET("/vehicles").and(accept(MediaType.APPLICATION_STREAM_JSON)), highwayHandler::vehiclesDetected);
+                GET("/vehicles").and(accept(MediaType.TEXT_EVENT_STREAM)), highwayHandler::vehiclesDetected);
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> route1(HighwayTrafficSimulator trafficSimulator){
+        return RouterFunctions.route(
+                GET("/simulateTraffic").and(accept(MediaType.TEXT_EVENT_STREAM)), trafficSimulator::trafficFlow);
     }
 }

@@ -1,6 +1,6 @@
 package com.tms.entity;
 
-import com.tms.constants.Fuel;
+import com.tms.constant.Fuel;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
